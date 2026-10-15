@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+
+
+<head>
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <title>ARQ-MATH 3D | Desafío arquitectónico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ARQ-MATH inicio"><span class="brand-mark">A</span><span>ARQ<span class="accent">·</span>MATH <small>LABORATORIO DE ARQUITECTURA</small></span></a>
+    <div class="header-status"><span class="live-dot"></span> SIMULACIÓN ACTIVA</div>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow">RETO UNIVERSITARIO · TEMPORADA 01</div>
+      <h1>Diseña con lógica.<br><span>Construye en 3D.</span></h1>
+      <p>Resuelve problemas de geometría, cálculo y estructuras para levantar tu torre. Cada respuesta correcta añade una planta a tu proyecto.</p>
+    </section>
+
+    <section class="dashboard" aria-label="Estadísticas del juego">
+      <article class="metric"><span class="metric-label">PUNTUACIÓN</span><strong id="score">0</strong><span class="metric-foot">puntos acumulados</span></article>
+      <article class="metric"><span class="metric-label">PLANTAS</span><strong id="floors">0 <small>/ 10</small></strong><span class="metric-foot">de tu edificio</span></article>
+      <article class="metric"><span class="metric-label">RETO</span><strong id="round">0 <small>/ 10</small></strong><span class="metric-foot">preguntas totales</span></article>
+      <article class="metric timer-metric"><span class="metric-label">TIEMPO</span><strong id="timer">30<span>s</span></strong><div class="timer-track"><div id="timerBar"></div></div></article>
+    </section>
+
+    <section class="main-grid">
+      <article class="scene-card">
+        <div class="card-heading">
+          <div><span class="section-kicker">01 / MAQUETA DIGITAL</span><h2>Tu proyecto</h2></div>
+          <span class="tag"><span class="live-dot"></span> 3D EN TIEMPO REAL</span>
+        </div>
+        <div id="scene" class="scene" aria-label="Vista tridimensional de la construcción">
+          <div class="scene-loading">Preparando maqueta 3D…</div>
+        </div>
+        <div class="scene-footer"><span><i class="legend-dot cyan"></i> Estructura construida</span><span><i class="legend-dot grey"></i> Próxima planta</span><span class="hint">Arrastra para girar · rueda para zoom</span></div>
+        <div class="construction-progress"><div class="progress-label"><span>AVANCE DE OBRA</span><strong id="progressText">0%</strong></div><div class="progress-track"><div id="progressBar"></div></div></div>
+      </article>
+
+      <article class="challenge-card">
+        <div class="card-heading">
+          <div><span class="section-kicker">02 / MESA DE CÁLCULO</span><h2>Resuelve el reto</h2></div>
+          <span id="topicTag" class="topic-tag">GEOMETRÍA</span>
+        </div>
+        <div class="question-area">
+          <div class="question-number" id="questionNumber">RETO 01</div>
+          <p id="questionText">Prepara tu calculadora mental. Pulsa “Iniciar reto” para recibir el primer problema.</p>
+          <div id="formula" class="formula-box">A = largo × ancho</div>
+        </div>
+        <form id="answerForm" class="answer-form">
+          <label for="answerInput">Tu respuesta <span id="unitLabel">—</span></label>
+          <div class="answer-row"><input id="answerInput" type="number" step="any" placeholder="Escribe el resultado" autocomplete="off" disabled><button id="submitBtn" class="btn btn-primary" type="submit" disabled>Comprobar ↗</button></div>
+        </form>
+        <div id="feedback" class="feedback" role="status" aria-live="polite">Pulsa “Iniciar reto” cuando estés listo.</div>
+        <div class="challenge-actions"><button id="startBtn" class="btn btn-primary btn-wide" type="button">Iniciar reto</button><button id="nextBtn" class="btn btn-secondary btn-wide" type="button" hidden>Siguiente problema →</button></div>
+        <p class="scoring-note">+100 puntos por acierto · Bonus por rapidez · 30 segundos por pregunta</p>
+      </article>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="panel">
+        <div class="card-heading"><div><span class="section-kicker">03 / REGISTRO</span><h2>Clasificación local</h2></div><span class="tag">TOP 5</span></div>
+        <p class="panel-description">Los resultados se guardan en este navegador. Escribe tu nombre antes de empezar para registrar tu puntuación.</p>
+        <div class="player-row"><label for="playerName">Arquitecto/a</label><input id="playerName" maxlength="18" placeholder="Tu nombre" autocomplete="nickname"></div>
+        <ol id="leaderboard" class="leaderboard"><li class="empty-rank">Aún no hay resultados. ¡Sé el primero!</li></ol>
+        <button id="clearRankingBtn" class="text-button" type="button">Borrar clasificación local</button>
+      </article>
+      <article class="panel rules-panel">
+        <div class="card-heading"><div><span class="section-kicker">04 / BITÁCORA</span><h2>Reglas de obra</h2></div></div>
+        <ul class="rules">
+          <li><span class="rule-icon">01</span><div><strong>Resuelve</strong><p>Contesta problemas universitarios de arquitectura e ingeniería.</p></div></li>
+          <li><span class="rule-icon">02</span><div><strong>Gestiona el tiempo</strong><p>Si el reloj llega a cero, el reto se pierde y continúa el siguiente.</p></div></li>
+          <li><span class="rule-icon">03</span><div><strong>Construye</strong><p>Cada respuesta correcta añade una planta a la maqueta 3D.</p></div></li>
+        </ul>
+      </article>
+    </section>
+    <footer>ARQ-MATH 3D <span>·</span> PROTOTIPO EDUCATIVO · HTML / CSS / JAVASCRIPT / THREE.JS</footer>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>

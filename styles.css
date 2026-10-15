@@ -1,0 +1,1027 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+:root {
+  color-scheme: light;
+  --bg: #f8f7f3;
+  --panel: #ffffff;
+  --panel2: #eee4d8;
+  --line: #b8a18a;
+  --text: #29231e;
+  --muted: #75695e;
+  --cyan: #78cfc7;
+  --green: #78cfc7;
+}
+
+
+* {
+    box-sizing: border-box
+}
+
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(rgba(125, 100, 75, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 100, 75, 0.07) 1px, transparent 1px),
+    #f8f7f3;
+  background-size: 24px 24px;
+  color: var(--text);
+  font-family: "Manrope", sans-serif;
+}
+
+
+button,
+input {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+.topbar {
+    height: 76px;
+    padding: 0 max(4vw, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #203148;
+    background: #0b1220cc
+}
+
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 800;
+    letter-spacing: .04em
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-size: 22px;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%)
+}
+
+.brand small {
+    display: block;
+    font: 9px var(--mono);
+    color: var(--muted);
+    letter-spacing: .14em;
+    margin-top: 4px
+}
+
+.accent {
+    color: var(--cyan)
+}
+
+.header-status,
+.tag,
+.topic-tag {
+    font: 10px var(--mono);
+    letter-spacing: .08em;
+    color: #b8c8d9
+}
+
+.live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #5ee0a077;
+    margin-right: 7px
+}
+
+.layout {
+    max-width: 1320px;
+    width: 92%;
+    margin: 0 auto
+}
+
+.intro {
+    padding: 42px 0 28px;
+    max-width: 720px
+}
+
+.eyebrow,
+.section-kicker,
+.metric-label,
+.question-number,
+.progress-label {
+    font: 10px var(--mono);
+    letter-spacing: .13em;
+    color: var(--cyan)
+}
+
+h1 {
+    font-size: clamp(32px, 4vw, 53px);
+    line-height: 1.08;
+    letter-spacing: -.05em;
+    margin: 14px 0
+}
+
+h1 span {
+    color: var(--cyan)
+}
+
+.intro p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 630px;
+    margin: 0
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 18px
+}
+
+.metric,
+.scene-card,
+.challenge-card,
+.panel {
+    background: linear-gradient(145deg, #e5d3bf, #c9ad91);
+    border: 1px solid var(--line);
+    border-radius: 13px
+}
+
+.metric {
+    padding: 17px 19px;
+    min-height: 104px
+}
+
+.metric-label {
+    color: var(--muted)
+}
+
+.metric strong {
+    display: block;
+    font-size: 29px;
+    line-height: 1.25;
+    margin-top: 8px;
+    letter-spacing: -.04em
+}
+
+.metric strong small {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500
+}
+
+.metric-foot {
+    font-size: 10px;
+    color: var(--muted)
+}
+
+.timer-metric strong {
+    color: var(--cyan)
+}
+
+.timer-metric strong span {
+    font-size: 14px;
+    margin-left: 3px
+}
+
+.timer-track,
+.progress-track {
+    height: 5px;
+    background: #26384f;
+    border-radius: 20px;
+    overflow: hidden
+}
+
+.timer-track {
+    margin-top: 9px
+}
+
+#timerBar {
+    height: 100%;
+    width: 100%;
+    background: var(--cyan);
+    transition: width .2s linear
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(350px, .85fr);
+    gap: 18px
+}
+
+.scene-card,
+.challenge-card,
+.panel {
+    padding: 21px
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px
+}
+
+.card-heading h2 {
+    font-size: 20px;
+    margin: 5px 0 0;
+    letter-spacing: -.03em
+}
+
+.tag {
+    border: 1px solid #34465e;
+    border-radius: 5px;
+    padding: 7px 9px;
+    white-space: nowrap
+}
+
+.topic-tag {
+    background: #193a4b;
+    color: var(--cyan);
+    padding: 7px 9px;
+    border-radius: 5px;
+    white-space: nowrap
+}
+
+.scene {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #263b55;
+    border-radius: 9px;
+    background: radial-gradient(ellipse at 50% 45%, #173b59, #0a1424 72%)
+}
+
+.scene canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: none
+}
+
+.scene-loading {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    font: 12px var(--mono)
+}
+
+.scene-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0;
+    color: var(--muted);
+    font-size: 10px
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 5px
+}
+
+.cyan {
+    background: var(--cyan)
+}
+
+.grey {
+    background: #61738a
+}
+
+.hint {
+    margin-left: auto;
+    font-size: 9px
+}
+
+.construction-progress {
+    border-top: 1px solid var(--line);
+    padding-top: 13px
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--muted)
+}
+
+.progress-label strong {
+    color: var(--cyan);
+    font-weight: 500
+}
+
+.progress-track {
+    height: 6px
+}
+
+#progressBar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #3a9ee9, var(--cyan));
+    transition: width .4s
+}
+
+.question-area {
+    min-height: 210px;
+    padding: 18px;
+    border: 1px solid #2a405a;
+    background: #0c1727;
+    border-radius: 9px
+}
+
+.question-number {
+    color: #90a7c0
+}
+
+#questionText {
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 600;
+    margin: 15px 0
+}
+
+.formula-box {
+    font: 12px var(--mono);
+    color: var(--cyan);
+    background: #153040;
+    border: 1px solid #245065;
+    border-radius: 6px;
+    padding: 11px;
+    overflow-wrap: anywhere
+}
+
+.answer-form {
+    margin-top: 19px
+}
+
+.answer-form label,
+.player-row label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px
+}
+
+.answer-form label span {
+    color: var(--cyan);
+    font-family: var(--mono);
+    margin-left: 5px
+}
+
+.answer-row {
+    display: flex;
+    gap: 9px
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #344a63;
+    background: #0a1422;
+    color: var(--text);
+    padding: 12px;
+    border-radius: 7px;
+    outline: none
+}
+
+input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 2px #55e6df20
+}
+
+input:disabled {
+    opacity: .55
+}
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 7px;
+    padding: 12px 15px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: transform .15s, opacity .15s
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-1px)
+}
+
+.btn:disabled {
+    opacity: .45;
+    cursor: not-allowed
+}
+
+.btn-primary {
+    background: var(--cyan);
+    color: #09202a
+}
+
+.btn-secondary {
+    background: #20344b;
+    color: var(--text);
+    border-color: #344a63
+}
+
+.btn-wide {
+    width: 100%
+}
+
+.challenge-actions {
+    display: flex;
+    gap: 9px;
+    margin-top: 12px
+}
+
+.feedback {
+    min-height: 37px;
+    padding: 11px 2px 2px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted)
+}
+
+.feedback.good {
+    color: var(--green)
+}
+
+.feedback.bad {
+    color: var(--red)
+}
+
+.scoring-note {
+    font-size: 10px;
+    line-height: 1.6;
+    color: #72869c;
+    margin: 13px 0 0
+}
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 18px
+}
+
+.panel-description {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7
+}
+
+.player-row {
+    margin: 18px 0 14px
+}
+
+.player-row input {
+    padding: 10px
+}
+
+.leaderboard {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    counter-reset: rank
+}
+
+.leaderboard li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #26384f;
+    padding: 12px 3px;
+    font-size: 12px
+}
+
+.rank-num {
+    font: 12px var(--mono);
+    color: var(--cyan);
+    width: 20px
+}
+
+.rank-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.rank-score {
+    font: 12px var(--mono);
+    color: var(--text)
+}
+
+.empty-rank {
+    color: var(--muted);
+    line-height: 1.6
+}
+
+.text-button {
+    background: none;
+    border: 0;
+    color: #8ea5bc;
+    font-size: 10px;
+    padding: 12px 0 0;
+    text-decoration: underline;
+    text-underline-offset: 3px
+}
+
+.rules {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0
+}
+
+.rules li {
+    display: flex;
+    gap: 13px;
+    padding: 13px 0;
+    border-top: 1px solid #26384f
+}
+
+.rule-icon {
+    font: 11px var(--mono);
+    color: var(--cyan);
+    padding-top: 2px
+}
+
+.rules strong {
+    font-size: 12px
+}
+
+.rules p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 5px 0 0
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #647a91;
+    font: 9px var(--mono);
+    letter-spacing: .08em
+}
+
+footer span {
+    color: var(--cyan);
+    padding: 0 7px
+}
+
+@media(max-width:900px) {
+    .main-grid {
+        grid-template-columns: 1fr
+    }
+
+    .scene {
+        height: 330px
+    }
+
+    .question-area {
+        min-height: 0
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr
+    }
+}
+
+@media(max-width:560px) {
+    .layout {
+        width: 94%
+    }
+
+    .topbar {
+        padding: 0 14px;
+        height: 65px
+    }
+
+    .header-status {
+        font-size: 8px
+    }
+
+    .brand small {
+        font-size: 7px
+    }
+
+    .intro {
+        padding-top: 30px
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .metric {
+        min-height: 95px;
+        padding: 14px
+    }
+
+    .scene-card,
+    .challenge-card,
+    .panel {
+        padding: 15px
+    }
+
+    .scene {
+        height: 280px
+    }
+
+    .scene-footer {
+        gap: 8px
+    }
+
+    .hint {
+        width: 100%;
+        margin-left: 0
+    }
+
+    .answer-row {
+        flex-direction: column
+    }
+
+    .challenge-actions {
+        flex-direction: column
+    }
+
+    .card-heading h2 {
+        font-size: 18px
+    }
+}
+
+/* ARQ-MATH — Estilo de boceto arquitectónico */
+
+:root {
+    --bg: #f4f1e9;
+    --panel: #d6c2ad;
+    --text: #292313;
+    --muted: #75695e;
+    --accent: #356b91;
+    --border: #aab5bc;
+}
+
+body {
+    background-color: #f4f1e9;
+    background-image:
+        linear-gradient(#9b8269 1px, transparent 1px),
+        linear-gradient(90deg, #7891a01a 1px, transparent 1px);
+    background-size: 22px 22px;
+    color: #252b30;
+}
+
+/* Barra superior */
+.topbar {
+    background: #fffdf7;
+    border-bottom: 1px solid #9aa8b2;
+    box-shadow: none;
+}
+
+/* Introducción */
+.intro {
+    background: #fffdf7;
+    border: 1px solid #9aa8b2;
+    box-shadow: 3px 3px 0 #b7c0c5;
+}
+
+/* Estadísticas */
+.metric {
+    background: #fffdf7;
+    border: 1px solid #aab5bc;
+    box-shadow: 2px 2px 0 #c5cbd0;
+}
+
+/* Paneles generales */
+.main-grid>*,
+.layout>section {
+    border-color: #aab5bc;
+}
+
+/* Botones */
+button {
+    border-radius: 2px;
+}
+
+/* Campos de respuesta */
+input {
+    background: #fffefb;
+    border-color: #9aa8b2;
+    border-radius: 2px;
+}
+
+/* Sensación de dibujo técnico */
+h1,
+h2,
+h3 {
+    letter-spacing: 0.03em;
+}
+
+
+/* =====================================
+   ARQ-MATH | ESTILO BOCETO ARQUITECTÓNICO
+   ===================================== */
+
+:root {
+    --paper: #f5f2e9;
+    --ink: #26343b;
+    --accent: #148f91;
+    --line: #b8c3c3;
+}
+
+/* Fondo de papel milimetrado */
+body {
+    background-color: var(--paper) !important;
+    background-image:
+        linear-gradient(rgba(38, 52, 59, 0.055) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(38, 52, 59, 0.055) 1px,
+            transparent 1px) !important;
+    background-size: 24px 24px !important;
+    color: var(--ink);
+}
+
+/* Tarjetas y paneles */
+.card,
+.panel,
+.stat,
+.stat-card {
+    background: rgba(255, 255, 255, 0.94) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 5px !important;
+    box-shadow: 4px 4px 0 rgba(38, 52, 59, 0.08) !important;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+h4 {
+    color: var(--ink);
+    letter-spacing: 0.5px;
+}
+
+/* Campos de respuesta */
+input {
+    background: #ffffff !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 4px !important;
+}
+
+/* Botones */
+button {
+    border-radius: 4px !important;
+    font-weight: 700;
+}
+
+/* Detalles de dibujo técnico */
+small,
+label {
+    letter-spacing: 0.3px;
+}
+
+
+/* ======================================
+   ARQ-MATH | ESTILO BOCETO ARQUITECTÓNICO
+   ====================================== */
+
+:root {
+    --paper: #f5f1e7;
+    --ink: #253746;
+    --accent: #438d89;
+    --line: #b7c3c3;
+}
+
+/* Fondo tipo papel cuadriculado */
+body {
+    background-color: var(--paper) !important;
+    background-image:
+        linear-gradient(#8099a31a 1px, transparent 1px),
+        linear-gradient(90deg, #8099a31a 1px, transparent 1px) !important;
+    background-size: 25px 25px !important;
+    color: var(--ink) !important;
+}
+
+/* Tarjetas y paneles */
+.card,
+.panel,
+.stat-card {
+    background: rgba(255, 253, 247, 0.95) !important;
+    border: 1px solid var(--line) !important;
+    box-shadow: 4px 4px 0 #25374616 !important;
+    color: var(--ink) !important;
+}
+
+/* Textos generales */
+h1,
+h2,
+h3,
+h4,
+p,
+label {
+    color: var(--ink);
+}
+
+/* Campos de respuesta */
+input {
+    background: #ffffff !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+}
+
+/* Botones */
+button {
+    border: 1px solid var(--ink) !important;
+    border-radius: 5px !important;
+    transition: transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+/* Barras de progreso */
+progress {
+    accent-color: var(--accent);
+}
+
+
+/* =====================================
+   ARQ-MATH | ESTILO BOCETO ARQUITECTÓNICO
+   ===================================== */
+
+:root {
+    --paper: #f5f2e9;
+    --ink: #26343b;
+    --accent: #148f91;
+    --line: #b8c3c3;
+}
+
+/* Fondo de papel milimetrado */
+body {
+    background-color: var(--paper) !important;
+    background-image:
+        linear-gradient(rgba(38, 52, 59, 0.055) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(38, 52, 59, 0.055) 1px,
+            transparent 1px) !important;
+    background-size: 24px 24px !important;
+    color: var(--ink);
+}
+
+/* Tarjetas y paneles */
+.card,
+.panel,
+.stat,
+.stat-card {
+    background: rgba(255, 255, 255, 0.94) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 5px !important;
+    box-shadow: 4px 4px 0 rgba(38, 52, 59, 0.08) !important;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+h4 {
+    color: var(--ink);
+    letter-spacing: 0.5px;
+}
+
+/* Campos de respuesta */
+input {
+    background: #ffffff !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 4px !important;
+}
+
+/* Botones */
+button {
+    border-radius: 4px !important;
+    font-weight: 700;
+}
+
+/* Detalles de dibujo técnico */
+small,
+label {
+    letter-spacing: 0.3px;
+}
+
+
+/* ARQ-MATH: paneles con apariencia de plano técnico */
+
+#scene,
+.scene-panel,
+.canvas-wrap,
+#scene canvas {
+    border-radius: 3px;
+}
+
+
+/* Paneles estilo boceto arquitectónico */
+.scene-panel,
+.game-panel,
+.question-panel,
+.rules-panel,
+.leaderboard-panel,
+#scene,
+#questionCard,
+#leaderboard {
+  background: #e5d3bf;
+  border: 1px solid #9b8269;
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 rgba(65, 48, 34, 0.12);
+  color: #29231e;
+}
+
+
+/* Líneas de dibujo técnico */
+h1,
+h2,
+h3 {
+    text-decoration-color: #342a08;
+    text-underline-offset: 6px;
+}
+
+/* Respuestas y fórmulas */
+.formula,
+.formula-box {
+    border: 1px solid #148f91;
+    border-radius: 3px;
+}
+
+/* Evitar que los textos pierdan legibilidad */
+p,
+label,
+small {
+    line-height: 1.6;
+}
+
+
+/* Tarjetas interiores en marrón café */
+#questionCard,
+.challenge-card,
+.question-card {
+  background: #5a4030;
+  border: 1px solid #80644c;
+  color: #fffaf4;
+}
+
+#questionCard p,
+.challenge-card p,
+.question-card p {
+  color: #eee0d0;
+}
+
+/* Campos de respuesta */
+input {
+  background: #fffdf9;
+  color: #29231e;
+  border: 1px solid #b8a18a;
+}
+
+
+/* ARQ-MATH: tarjeta de reto marrón oscuro */
+#questionCard,
+.challenge-card,
+.question-card {
+  background: #493629 !important;
+  border: 1px solid #8c7057 !important;
+  color: #fffaf4 !important;
+}
+
+#questionCard p,
+.challenge-card p,
+.question-card p {
+  color: #f1e5d8 !important;
+}
+
+/* Fórmula matemática */
+#questionCard .formula,
+.challenge-card .formula {
+  background: #d6c2ad;
+  color: #29231e;
+  border-color: #9b8269;
+}
